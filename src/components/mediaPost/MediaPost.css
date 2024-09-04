@@ -1,0 +1,142 @@
+/* Container for the entire component */
+.media-post-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-x: hidden; /* Prevents horizontal overflow */
+  }
+  
+  /* Styling for the form */
+  .media-post-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .media-post-form textarea {
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .media-post-form input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .media-post-form button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Ensures the button is full-width */
+  }
+  
+  .imageButton{
+    background-color: #007bff;
+  }
+  .media-post-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for each post */
+  .media-post {
+    margin-bottom: 20px;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Text inside the post */
+  .media-post p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Carousel styles */
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 500px;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
+  
+  /* Dots styles */
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #717171;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .carousel img {
+      max-height: 300px;
+    }
+  }
+  

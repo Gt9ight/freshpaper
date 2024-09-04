@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import MediaPost from "./components/mediaPost/MediaPost";
+import MediaFeed from "./components/feed/MediaFeed";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/home/Home";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter basename="/freshpaper">
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home/>} />
+            <Route path="/postmedia" element={<MediaPost/>} />
+            <Route path="/mediafeed" element={<MediaFeed />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

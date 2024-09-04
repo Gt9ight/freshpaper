@@ -1,0 +1,18 @@
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .postMediaButton, .mediaFeedButton{
+    background-color: bisque;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .feed, .postMedia{
+    margin: 20px;
+  }

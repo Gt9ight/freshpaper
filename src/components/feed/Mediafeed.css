@@ -1,0 +1,99 @@
+/* General container for the media feed */
+.media-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f8f8;
+  }
+  
+  /* Styling each individual post */
+  .media-post {
+    width: 100%;
+    max-width: 600px; /* Max width for larger screens */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Text styling for the posts */
+  .media-post p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  
+  /* Carousel styling (if applicable) */
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Adjust the max-width to your preferred size */
+    height: 300px; /* Set a fixed height */
+    margin: 0 auto; /* Center the carousel */
+    overflow: hidden; /* Hide overflow to ensure only one image is visible at a time */
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire area without distortion */
+    border-radius: 8px;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 10; /* Ensure buttons are above the images */
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
+  
+  .carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .carousel-dots .dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 8px;
+    height: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .carousel-dots .dot.active {
+    background-color: #333;
+  }
+  
+  /* Ensure no horizontal scrolling on mobile */
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .media-post img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
