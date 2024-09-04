@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/freshpaper/static/css/main.ce80447e.css",
+    "main.js": "/freshpaper/static/js/main.9bb47b10.js",
+    "static/js/453.6ddb4c52.chunk.js": "/freshpaper/static/js/453.6ddb4c52.chunk.js",
+    "index.html": "/freshpaper/index.html",
+    "main.ce80447e.css.map": "/freshpaper/static/css/main.ce80447e.css.map",
+    "main.9bb47b10.js.map": "/freshpaper/static/js/main.9bb47b10.js.map",
+    "453.6ddb4c52.chunk.js.map": "/freshpaper/static/js/453.6ddb4c52.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce80447e.css",
+    "static/js/main.9bb47b10.js"
+  ]
+}
