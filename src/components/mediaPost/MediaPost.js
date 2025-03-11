@@ -5,6 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import MediaFeed from "../feed/MediaFeed";
 import imageCompression from "browser-image-compression";
 import "./MediaPost.css";
+import globe from './regulareEarth.png'
 
 const MediaPost = () => {
   const [text, setText] = useState("");
@@ -86,6 +87,12 @@ const MediaPost = () => {
 
   return (
     <div className="media-post-container">
+<h1 className="daily-bugle-title">
+  <span className="skew-text">FRESH</span> 
+  <img src={globe} alt="Globe" className="globe-image" /> 
+  <span className="skew-text">PAPER</span>
+</h1>
+
       <form className="media-post-form" onSubmit={handleSubmit}>
         <textarea
           placeholder="Write something..."

@@ -1,11 +1,46 @@
+.daily-bugle-title {
+  position: relative;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 60px;
+  color: white; /* Main text color */
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  word-spacing: -20px; /* Decrease the space between words */
+  text-align: center;
+  
+  transform: skewX(-15deg);
+  text-shadow: 
+    -2px -2px 0 black,  
+     2px -2px 0 black,  
+    -2px  2px 0 black,  
+     10px  2px 0 black,  
+    -4px -4px 5px black;
+}
+
+/* Ensure the text is behind the image */
+.skew-text {
+  position: relative;
+  z-index: -1; /* Pushes text behind */
+  margin-left: 0px; /* Decrease the space between the text */
+  margin-right: -4px; /* Decrease space on the right */
+}
+
+.globe-image {
+  width: 160px; /* Adjust size as needed */
+  height: auto;
+  z-index: 2;
+  vertical-align: middle; /* Aligns with text */
+  transform: skewX(15deg);
+
+}
+
 /* Container for the entire component */
 .media-post-container {
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    align-items: center;
     background-color: #f9f9f9;
     overflow-x: hidden; /* Prevents horizontal overflow */
   }
@@ -55,10 +90,7 @@
   .media-post {
     margin-bottom: 20px;
     padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
     overflow: hidden;
   }
   
@@ -134,9 +166,58 @@
   }
   
   /* Responsive Design */
-  @media (max-width: 600px) {
-    .carousel img {
-      max-height: 300px;
+  @media only screen and (max-width: 768px) {
+    /* Title styling */
+    .daily-bugle-title{
+        font-size: 40px; /* Reduce font size for smaller screens */
+        letter-spacing: 2px; /* Adjust letter spacing */
     }
+    .skew-text{
+      position: relative;
+      z-index: -1;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+  
+    /* Globe image for mobile */
+    .globe-image{
+        width: 120px; /* Smaller size for mobile */
+        margin: 0 5px; /* Adjust spacing */
+    }
+  
+    /* Individual post styling */
+    .media-post {
+        max-width: 100%; /* Full width on mobile */
+        padding: 8px; /* Adjust padding for mobile */
+        align-items: center;
+    }
+  
+    .media-post p {
+        font-size: 12px; /* Smaller text size */
+        text-align: left; /* Align text to the left */
+    }
+  
+  
+  
+    /* Carousel styling */
+    .carousel {
+        max-width: 100%; /* Make the carousel full width on mobile */
+        height: 200px; /* Smaller carousel height */
+    }
+  
+    /* Carousel button size adjustments */
+    .carousel-btn {
+        font-size: 18px; /* Smaller button size */
+    }
+  
+    .carousel-dots .dot {
+        width: 6px; /* Smaller dot size */
+        height: 6px;
+    }
+  
+    .carousel-dots .dot.active {
+        background-color: #333;
+    }
+    
   }
   

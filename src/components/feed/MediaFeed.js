@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../utilis/Firebase";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import "./Mediafeed.css";
+import globe from '../mediaPost/regulareEarth.png'
 
 function MediaFeed() {
   const [posts, setPosts] = useState([]);
@@ -23,6 +24,7 @@ function MediaFeed() {
 
   return (
     <div className="media-feed">
+
       {posts.map((post) => (
         <div key={post.id} className="media-post">
 
@@ -53,6 +55,7 @@ const Carousel = ({ images }) => {
   };
 
   return (
+    <div>
     <div className="carousel">
       {images.length > 1 && (
         <button className="carousel-btn prev" onClick={handlePrev}>
@@ -77,6 +80,7 @@ const Carousel = ({ images }) => {
           ></span>
         ))}
       </div>
+    </div>
     </div>
   );
 };
