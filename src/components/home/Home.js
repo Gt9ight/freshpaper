@@ -24,11 +24,15 @@ function Home() {
 
   return (
     <div className="media-feed">
-      <h1 className="daily-bugle-titleFeed"> 
-  <span className="skew-textFeed">FRESH</span> 
-  <img src={globe} alt="Globe" className="globe-imageFeed" /> 
-  <span className="skew-textFeed">PAPER</span>
-</h1>
+      <button className="login-btn">Login</button>
+      <div className="header">
+        <h1 className="daily-bugle-titleFeed"> 
+          <span className="skew-textFeed">FRESH</span> 
+          <img src={globe} alt="Globe" className="globe-imageFeed" /> 
+          <span className="skew-textFeed">PAPER</span>
+        </h1>
+        
+      </div>
       {posts.map((post) => (
         <div key={post.id} className="media-post">
 
