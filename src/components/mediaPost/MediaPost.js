@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react";
-import { db, storage } from "../utilis/Firebase";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import React, { useState, useRef, useEffect } from "react";
+import { db, storage, auth } from "../utilis/Firebase";
+import { signOut } from "firebase/auth";
+import { collection, addDoc, Timestamp, doc, getDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import MediaFeed from "../feed/MediaFeed";
 import imageCompression from "browser-image-compression";
+import { useNavigate } from "react-router-dom";
 import "./MediaPost.css";
 import globe from './regulareEarth.png'
 
@@ -12,6 +14,32 @@ const MediaPost = () => {
   const [media, setMedia] = useState([]);
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (auth.currentUser) {
+        const userDoc = await getDoc(doc(db, "users", auth.currentUser.uid));
+        if (userDoc.exists()) {
+          setFirstName(userDoc.data().firstName || "");
+          setLastName(userDoc.data().lastName || "");
+        }
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   const handleTextChange = (e) => {
     setText(e.target.value);
@@ -38,7 +66,7 @@ const MediaPost = () => {
   const compressImages = async (files) => {
     const options = {
       maxSizeMB: 1,
-      maxWidthOrHeight: 800, 
+      maxWidthOrHeight: 800,
       useWebWorker: true,
     };
 
@@ -87,11 +115,23 @@ const MediaPost = () => {
 
   return (
     <div className="media-post-container">
-<h1 className="daily-bugle-title">
-  <span className="skew-text">FRESH</span> 
-  <img src={globe} alt="Globe" className="globe-image" /> 
-  <span className="skew-text">PAPER</span>
-</h1>
+      <div className="header-container">
+        <div>
+          {firstName && lastName && (
+            <p className="welcome-message">
+              Welcome, {firstName} {lastName}!
+            </p>
+          )}
+        </div>
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+      <h1 className="daily-bugle-title">
+        <span className="skew-text">FRESH</span>
+        <img src={globe} alt="Globe" className="globe-image" />
+        <span className="skew-text">PAPER</span>
+      </h1>
 
       <form className="media-post-form" onSubmit={handleSubmit}>
         <textarea
@@ -110,7 +150,7 @@ const MediaPost = () => {
           {uploading ? "Posting..." : "Post"}
         </button>
       </form>
-      
+
       <MediaFeed />
     </div>
   );

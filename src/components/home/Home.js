@@ -3,9 +3,11 @@ import { db } from "../utilis/Firebase";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import "./home.css";
 import globe from '../mediaPost/regulareEarth.png'
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const postsCollection = collection(db, "mediaposts");
@@ -24,22 +26,24 @@ function Home() {
 
   return (
     <div className="media-feed">
-      <button className="login-btn">Login</button>
       <div className="header">
         <h1 className="daily-bugle-titleFeed"> 
           <span className="skew-textFeed">FRESH</span> 
-          <img src={globe} alt="Globe" className="globe-imageFeed" /> 
+          {/* Globe Image as Login Button */}
+          <img 
+            src={globe} 
+            alt="Globe" 
+            className="globe-imageFeed login-globe" 
+            onClick={() => navigate("/auth")} 
+          /> 
           <span className="skew-textFeed">PAPER</span>
         </h1>
-        
       </div>
       {posts.map((post) => (
         <div key={post.id} className="media-post">
-
           {post.mediaUrls && post.mediaUrls.length > 0 && (
             <Carousel images={post.mediaUrls} />
           )}
-
           {post.text && <p>{post.text}</p>}
         </div>
       ))}
@@ -63,7 +67,6 @@ const Carousel = ({ images }) => {
   };
 
   return (
-    <div>
     <div className="carousel">
       {images.length > 1 && (
         <button className="carousel-btn prev" onClick={handlePrev}>
@@ -88,7 +91,6 @@ const Carousel = ({ images }) => {
           ></span>
         ))}
       </div>
-    </div>
     </div>
   );
 };
