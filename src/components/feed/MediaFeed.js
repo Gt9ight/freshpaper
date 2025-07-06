@@ -37,7 +37,7 @@ function MediaFeed() {
     );
 }
 
-const Carousel = React.memo(({ images }) => { // Memoize the Carousel
+const Carousel = React.memo(({ images }) => { 
     const [currentIndex, setCurrentIndex] = useState(0);
     const imageRefs = useRef([]);
 

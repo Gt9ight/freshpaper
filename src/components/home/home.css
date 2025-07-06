@@ -1,217 +1,139 @@
-/* General container for the media feed */
-.media-feed {
-  width: 100%;
+/* Base container */
+.split-login-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  background-color: #f8f8f8;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  position: relative;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-direction: row;
 }
 
-/* Style for the login button */
-.login-btn {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 10px 10px;
-  background-color: #007bff;
+/* Shared panel styles */
+.login-left,
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Left panel */
+.login-left {
+  background: linear-gradient(to bottom right, #4a90e2, #6a11cb);
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.login-btn:hover {
-  background-color: #0056b3;
-}
-
-.daily-bugle-titleFeed {
-  position: relative;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 60px;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  word-spacing: -20px;
-  text-align: center;
-  
-  transform: skewX(-15deg);
-  text-shadow: 
-    -2px -2px 0 black,  
-     2px -2px 0 black,  
-    -2px  2px 0 black,  
-     10px  2px 0 black,  
-    -4px -4px 5px black;
-  
-  display: inline-flex; /* Makes everything stay in a single line */
-  align-items: center; /* Vertically aligns items */
-}
-
-.skew-textFeed {
-  position: relative;
-  z-index: -1;
-  margin-left: -14px;
-  margin-right: -14px;
-}
-
-.globe-imageFeed {
-  width: 160px;
-  height: auto;
-  z-index: 2;
-  vertical-align: middle;
-  transform: skewX(15deg);
-  margin: 0 10px; /* Adjust spacing between image and text */
-}
-
-
-/* Styling each individual post */
-.media-post {
-  width: 100%;
-  max-width: 600px; /* Max width for larger screens */
-  margin-bottom: 20px;
-  padding: 10px;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-/* Text styling for the posts */
-.media-post p {
-  font-size: 14px;
-  color: #333;
-  margin-top: 10px;
-  line-height: 1.5;
   text-align: center;
 }
 
-/* Carousel styling (if applicable) */
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 500px; /* Adjust the max-width to your preferred size */
-  height: 300px; /* Set a fixed height */
-  margin: 0 auto; /* Center the carousel */
-  overflow: hidden; /* Hide overflow to ensure only one image is visible at a time */
+.login-left h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-.carousel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image covers the entire area without distortion */
-  border-radius: 8px;
+.login-left p {
+  font-size: 18px;
+  max-width: 300px;
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
+/* Right panel */
+.login-right {
+  background-color: #f9f9f9;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.login-form h2 {
+  margin-bottom: 25px;
   font-size: 24px;
   color: #333;
-  cursor: pointer;
-  z-index: 10; /* Ensure buttons are above the images */
-}
-
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
-
-.carousel-dots {
   text-align: center;
-  margin-top: 10px;
 }
 
-.carousel-dots .dot {
-  display: inline-block;
-  margin: 0 5px;
-  width: 8px;
-  height: 8px;
-  background-color: #bbb;
-  border-radius: 50%;
+.login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.carousel-dots .dot.active {
-  background-color: #333;
+.login-form button:hover {
+  background-color: #357ab8;
 }
 
-/* Ensure no horizontal scrolling on mobile */
-/* Ensure no horizontal scrolling on mobile */
-body {
-margin: 0;
-padding: 0;
-overflow-x: hidden;
+.login-footer {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
 }
 
-.media-post img {
-width: 100%;
-height: auto;
+.login-footer a {
+  color: #4a90e2;
+  text-decoration: none;
 }
 
-/* Mobile-specific styles */
-@media only screen and (max-width: 768px) {
-/* Title styling */
-.daily-bugle-titleFeed {
-    font-size: 40px; /* Reduce font size for smaller screens */
-    letter-spacing: 2px; /* Adjust letter spacing */
-}
-.skew-textFeed {
-  position: relative;
-  z-index: -1;
-  margin-left: -8px;
-  margin-right: -8px;
+.login-footer a:hover {
+  text-decoration: underline;
 }
 
-/* Globe image for mobile */
-.globe-imageFeed {
-    width: 120px; /* Smaller size for mobile */
-    margin: 0 5px; /* Adjust spacing */
-}
+/* ✅ Mobile Responsive */
+@media (max-width: 768px) {
+  .split-login-container {
+    flex-direction: column;
+    height: auto;
+  }
 
-/* Individual post styling */
-.media-post {
-    max-width: 100%; /* Full width on mobile */
-    padding: 8px; /* Adjust padding for mobile */
-    align-items: center;
-}
+  .login-left,
+  .login-right {
+    flex: none;
+    width: 100%;
+    padding: 30px 20px;
+  }
 
-.media-post p {
-    font-size: 12px; /* Smaller text size */
-    text-align: left; /* Align text to the left */
-}
+  .login-left {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
+  .login-left h1 {
+    font-size: 28px;
+  }
 
+  .login-left p {
+    font-size: 16px;
+  }
 
-/* Carousel styling */
-.carousel {
-    max-width: 100%; /* Make the carousel full width on mobile */
-    height: 200px; /* Smaller carousel height */
-}
+  .login-form {
+    padding: 30px 20px;
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 8px;
+  }
 
-/* Carousel button size adjustments */
-.carousel-btn {
-    font-size: 18px; /* Smaller button size */
-}
-
-.carousel-dots .dot {
-    width: 6px; /* Smaller dot size */
-    height: 6px;
-}
-
-.carousel-dots .dot.active {
-    background-color: #333;
-}
-
+  .login-form input,
+  .login-form button {
+    font-size: 16px;
+  }
 }

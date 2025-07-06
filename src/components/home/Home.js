@@ -34,7 +34,7 @@ function Home() {
             src={globe} 
             alt="Globe" 
             className="globe-imageFeed login-globe" 
-            onClick={() => navigate("/auth")} 
+            
           /> 
           <span className="skew-textFeed">PAPER</span>
         </h1>
